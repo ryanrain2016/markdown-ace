@@ -480,12 +480,12 @@ $(function(){
     editor.getSession().on('change',function(){
         $('#preview').html(markdown(editor.getValue()));
     });
-    // $('#preview').parent().scroll(function(){
-    //     var toc = $('#markdown-toc');
-    //     if (toc.length==0) return;
-    //     var h = $('#preview').parent().scrollTop();
-    //     toc.parent().attr('style',`position:relative;top:${h}px;`);
-    // });
+    $('#preview').parent().scroll(function(){
+        var toc = $('#markdown-toc');
+        if (toc.length==0) return;
+        var h = $('#preview').parent().scrollTop()+20;
+        toc.parent().attr('style',`top:${h}px;`);
+    });
     var pasteImage=function(blob){
         window.URL = window.URL || window.webkitURL;
         var blobUrl = window.URL.createObjectURL(blob);
