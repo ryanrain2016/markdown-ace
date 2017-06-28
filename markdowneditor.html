@@ -434,7 +434,7 @@ $(function(){
             title = '';
             for (var j = 1;j<=head.depth;j++){
                 html += indent;
-                title += h[j]+'.';
+                if (h[j]!=0)title += h[j]+'.';
             }
             html += '<a href="#' + text+'">';
             title = title.slice(0, title.length-1) + ' ';
