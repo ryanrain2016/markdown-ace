@@ -122,7 +122,11 @@ $(function(){
         console.dir(blob);
         window.URL = window.URL || window.webkitURL;
         var blobUrl = window.URL.createObjectURL(blob);
-        editor.insert('['+ blob.name +']('+blobUrl+')');
+        if (/image/.test(blob.type)){
+            editor.insert('!['+ blob.name +']('+blobUrl+')');
+        }else{
+            editor.insert('['+ blob.name +']('+blobUrl+')');
+        }
         // var form = new FormData();
         // form.append('file',blob);
         // $.ajax({
