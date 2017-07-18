@@ -317,9 +317,10 @@ $(function(){
     $('#EditorModal-code').find('.btn-primary').click(function(e){
         var code_language = $('#code-language').val();
         var code =code_editor.getValue();
-        editor.insert('```'+code_language+'\n');
-        editor.insert(code);
-        editor.insert('\n```\n');
+        //editor.insert('```'+code_language+'\n');
+        //editor.insert(code);
+        //editor.insert('\n```\n');
+        editor.insert('```'+code_language+'\n'+code+'\n```\n');
         $('#EditorModal-code').find('.btn-default').click();
         code_editor.setValue('');
         editor.focus();
